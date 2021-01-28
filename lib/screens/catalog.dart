@@ -51,7 +51,9 @@ class _AddButton extends StatelessWidget {
               // We are using context.read() here because the callback
               // is executed whenever the user taps the button. In other
               // words, it is executed outside the build method.
-              var cart = context.read<CartModel>();
+
+              final cart = Provider.of<CartModel>(context, listen: false);
+              // var cart = context.read<CartModel>();
               cart.add(item);
             },
       style: ButtonStyle(
